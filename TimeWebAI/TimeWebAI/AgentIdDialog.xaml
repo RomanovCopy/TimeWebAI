@@ -1,0 +1,15 @@
+﻿<Window x:Class="TimeWebAI.AgentIdDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Введите Agent ID" Height="180" Width="400"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <StackPanel Margin="10" VerticalAlignment="Center">
+        <TextBlock Text="Введите Agent ID:" Margin="0,0,0,5"/>
+        <TextBox Name="AgentIdTextBox" Height="25"/>
+        <CheckBox Name="SaveCheckBox" Content="Сохранять для будущих сессий" Margin="0,10,0,0"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Name="OkButton" Width="80" Margin="0,0,10,0" Click="OkButton_Click">OK</Button>
+            <Button Name="CancelButton" Width="80" Click="CancelButton_Click">Отмена</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
