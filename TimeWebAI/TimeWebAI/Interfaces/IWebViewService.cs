@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TimeWebAI.Interfaces
+{
+    public interface IWebViewService
+    {
+        string? AgentId { get; set; }
+        Task LoadWidgetAsync();
+    }
+}
