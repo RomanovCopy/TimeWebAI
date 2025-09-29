@@ -66,6 +66,7 @@ namespace TimeWebAI
             webView.Source = new Uri(path);
         }
 
+
         private string LoadHtmlFromResource(string resourceFullName)
         {
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
@@ -74,6 +75,7 @@ namespace TimeWebAI
                 throw new Exception($"Ресурс {resourceFullName} не найден!");
             using var reader = new StreamReader(stream);
             return reader.ReadToEnd();
+
         }
 
         private string ExtractHtmlResourceToTemp(string resourceFullName)
