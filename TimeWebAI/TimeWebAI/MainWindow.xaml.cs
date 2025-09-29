@@ -1,4 +1,5 @@
 ﻿using Microsoft.Web.WebView2.Core;
+using Microsoft.Web.WebView2.Wpf;
 
 using System;
 using System.IO;
@@ -20,6 +21,8 @@ namespace TimeWebAI
             // Загружаем сохранённый agentId, если есть
             string savedAgentId = Properties.Settings.Default.AgentId;
             bool showDialog = string.IsNullOrWhiteSpace(savedAgentId);
+            string htmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "widget.html");
+
 
             if(showDialog)
             {
@@ -42,13 +45,19 @@ namespace TimeWebAI
                 }
             } else
             {
+                //string htmlContent = File.ReadAllText(htmlPath);
+                //string str=Path.Combine( "const agentId =", AgentId ) ;
+                //htmlContent = htmlContent.Replace("const agentId = window.AgentId || 'default-id';",
+                //                      $"const agentId = {AgentId};");
+
+
                 AgentId = savedAgentId;
             }
 
-            InitializeWebView();
+            InitializeWebView(htmlPath);
         }
 
-        private async void InitializeWebView()
+        private async void InitializeWebView(string htmlPath)
         {
             var env = await CoreWebView2Environment.CreateAsync();
             await webView.EnsureCoreWebView2Async(env);
@@ -57,7 +66,6 @@ namespace TimeWebAI
             await webView.ExecuteScriptAsync($"window.agentId = '{AgentId}';");
 
             // Загружаем HTML
-            string htmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "widget.html");
             if(!File.Exists(htmlPath))
             {
                 MessageBox.Show("Файл widget.html не найден!");
