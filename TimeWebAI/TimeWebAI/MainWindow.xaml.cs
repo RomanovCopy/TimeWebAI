@@ -21,7 +21,7 @@ namespace TimeWebAI
             // Загружаем сохранённый agentId, если есть
             string savedAgentId = Properties.Settings.Default.AgentId;
             bool showDialog = string.IsNullOrWhiteSpace(savedAgentId);
-            string htmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "widget.html");
+            //string htmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "widget.html");
 
 
             if(showDialog)
@@ -54,25 +54,44 @@ namespace TimeWebAI
                 AgentId = savedAgentId;
             }
 
-            InitializeWebView(htmlPath);
+
+            InitializeWebView();
         }
 
-        private async void InitializeWebView(string htmlPath)
+        private void InitializeWebView()
         {
-            var env = await CoreWebView2Environment.CreateAsync();
-            await webView.EnsureCoreWebView2Async(env);
+            // Загружаем HTML из ресурсов на диск и получаем его адрес
+            string path = ExtractHtmlResourceToTemp("TimeWebAI.widget.html");
 
-            // Передаем agentId в JS
-            await webView.ExecuteScriptAsync($"window.agentId = '{AgentId}';");
-
-            // Загружаем HTML
-            if(!File.Exists(htmlPath))
-            {
-                MessageBox.Show("Файл widget.html не найден!");
-                Application.Current.Shutdown();
-                return;
-            }
-            webView.Source = new Uri(htmlPath);
+            webView.Source = new Uri(path);
         }
+
+        private string LoadHtmlFromResource(string resourceFullName)
+        {
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            using var stream = assembly.GetManifestResourceStream(resourceFullName);
+            if(stream == null)
+                throw new Exception($"Ресурс {resourceFullName} не найден!");
+            using var reader = new StreamReader(stream);
+            return reader.ReadToEnd();
+        }
+
+        private string ExtractHtmlResourceToTemp(string resourceFullName)
+        {
+            //считываем из ресурсов
+            string html=LoadHtmlFromResource(resourceFullName);
+            //вставляем Id
+            html = html.Replace("const agentId = window.agentId || 'default-id';",
+                    $"const agentId = '{AgentId}';");
+
+            //получаем адрес для сохранения файла
+            string tempPath = Path.Combine(Path.GetTempPath(), "widget.html");
+            //сохраняем файл
+            File.WriteAllText(tempPath, html);
+            return tempPath;
+        }
+
+
+
     }
 }
