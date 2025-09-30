@@ -21,7 +21,6 @@ namespace TimeWebAI
             // Загружаем сохранённый agentId, если есть
             string savedAgentId = Properties.Settings.Default.AgentId;
             bool showDialog = string.IsNullOrWhiteSpace(savedAgentId);
-            //string htmlPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "widget.html");
 
 
             if(showDialog)
@@ -45,12 +44,6 @@ namespace TimeWebAI
                 }
             } else
             {
-                //string htmlContent = File.ReadAllText(htmlPath);
-                //string str=Path.Combine( "const agentId =", AgentId ) ;
-                //htmlContent = htmlContent.Replace("const agentId = window.AgentId || 'default-id';",
-                //                      $"const agentId = {AgentId};");
-
-
                 AgentId = savedAgentId;
             }
 
@@ -87,7 +80,7 @@ namespace TimeWebAI
                     $"const agentId = '{AgentId}';");
 
             //получаем адрес для сохранения файла
-            string tempPath = Path.Combine(Path.GetTempPath(), "widget.html");
+            string tempPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "widget.html");
             //сохраняем файл
             File.WriteAllText(tempPath, html);
             return tempPath;
