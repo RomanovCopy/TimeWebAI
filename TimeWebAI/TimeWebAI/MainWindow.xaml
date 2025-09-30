@@ -3,8 +3,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:interfaces="clr-namespace:TimeWebAI.Interfaces"
-        xmlns:markup="clr-namespace:TimeWebAI.Markup" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:markup="clr-namespace:TimeWebAI.Markup" 
+        xmlns:controls="clr-namespace:TimeWebAI.AppControls"
         Title="Timeweb AI" MinHeight="600" MinWidth="400"
         d:DataContext="{x:Type interfaces:IMainWindowViewModel}"  >
 
@@ -37,7 +39,7 @@
             <RowDefinition x:Name="forStatusBar" Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1" >
-            <ContentControl Content="{markup:ResolveUserControl UserControlType={x:Type control:MyFrame}}" />
+            <ContentControl Content="{markup:ResolveUserControl UserControlType={x:Type controls:FrameControl}}" />
         </Grid>
     </Grid>
     <i:Interaction.Triggers>

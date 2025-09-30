@@ -3,22 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 
 using TimeWebAI.Infrastructure;
 
 namespace TimeWebAI.Models
 {
-    internal class FrameControlModel: ViewModelBase
+    internal class WebViewPageModel: ViewModelBase
     {
-        internal Page? CurrentPage { get => currentPage; private set => SetProperty(ref currentPage, value); }
-        Page? currentPage;
-
-        public FrameControlModel()
+        public WebViewPageModel()
         {
-
         }
 
+
+
+        internal bool CanExecute_PageLoaded(object? obj)
+        {
+            return true;
+        }
+        internal void Execute_PageLoaded(object? obj)
+        {
+        }
+
+        internal bool CanExecute_PageClear(object? obj)
+        {
+            return true;
+        }
+        internal void Execute_PageClear(object? obj)
+        {
+        }
 
         internal bool CanExecute_Loaded(object? obj)
         {
@@ -26,6 +38,7 @@ namespace TimeWebAI.Models
         }
         internal void Execute_Loaded(object? obj)
         {
+
         }
 
         internal bool CanExecute_Close(object? obj)
@@ -53,5 +66,6 @@ namespace TimeWebAI.Models
         internal void Execute_Closed(object? obj)
         {
         }
+
     }
 }
