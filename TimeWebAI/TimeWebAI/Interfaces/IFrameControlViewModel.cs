@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using TimeWebAI.Infrastructure;
+
 namespace TimeWebAI.Interfaces
 {
-    public interface IMainWindowViewModel:IViewModel,IWindowWithId
+    public interface IFrameControlViewModel:IViewModel
     {
-
     }
 }

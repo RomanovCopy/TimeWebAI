@@ -13,7 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="8.4.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3485.44" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,8 +54,8 @@
 
   <ItemGroup>
     <Folder Include="bin\Debug\net8.0-windows\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="Infrastructure\" />
+    <Folder Include="Markup\" />
   </ItemGroup>
 
 </Project>
