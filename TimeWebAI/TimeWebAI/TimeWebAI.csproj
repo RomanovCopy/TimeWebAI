@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="widget.html" />
+    <EmbeddedResource Include="Resources\widget.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,6 +51,8 @@
 
   <ItemGroup>
     <Folder Include="bin\Debug\net8.0-windows\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
 
 </Project>

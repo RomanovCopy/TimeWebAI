@@ -54,7 +54,7 @@ namespace TimeWebAI
         private void InitializeWebView()
         {
             // Загружаем HTML из ресурсов на диск и получаем его адрес
-            string path = ExtractHtmlResourceToTemp("TimeWebAI.widget.html");
+            string path = ExtractHtmlResourceToTemp("TimeWebAI.Resources.widget.html");
 
             webView.Source = new Uri(path);
         }
