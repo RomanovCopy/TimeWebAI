@@ -38,6 +38,11 @@
             <RowDefinition x:Name="forMyFrame" Height="*"/>
             <RowDefinition x:Name="forStatusBar" Height="Auto"/>
         </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Height="Auto">
+            <Border BorderBrush="Black" BorderThickness="1" CornerRadius="0,5,5,0">
+                <TextBlock Text="{Binding }" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,5,0"/>
+            </Border>
+        </StackPanel>
         <Grid Grid.Row="1" >
             <ContentControl Content="{markup:ResolveUserControl UserControlType={x:Type controls:FrameControl}}" />
         </Grid>

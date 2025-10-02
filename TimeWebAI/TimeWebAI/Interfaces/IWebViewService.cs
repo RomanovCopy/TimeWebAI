@@ -8,5 +8,8 @@ namespace TimeWebAI.Interfaces
 {
     public interface IWebViewService
     {
+
+
+
     }
 }
