@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 using TimeWebAI.Infrastructure;
@@ -12,30 +11,25 @@ using TimeWebAI.Models;
 
 namespace TimeWebAI.ViewModels
 {
-    public class FrameControlViewModel:ViewModelBase,IFrameControlViewModel
+    public class StatusBarControlViewModel:ViewModelBase,IStatusBarControlViewModel
     {
-        private readonly IFrameControlModel model;
-
-        public Page? CurrentPage => model.CurrentPage;
-
-        public FrameControlViewModel(IFrameControlModel model)
+        private readonly StatusBarControlModel model;
+        public StatusBarControlViewModel()
         {
-            this.model = model;
-            this.model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
+            model = new StatusBarControlModel();
+            model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
         }
 
-
         public ICommand Loaded => loaded ??= new RelayCommand(model.Execute_Loaded, model.CanExecute_Loaded);
-        RelayCommand? loaded;
+        RelayCommand loaded;
 
         public ICommand Close => close ??= new RelayCommand(model.Execute_Close, model.CanExecute_Close);
-        RelayCommand? close;
+        RelayCommand close;
 
         public ICommand Closing => closing ??= new RelayCommand(model.Execute_Closing, model.CanExecute_Closing);
-        RelayCommand? closing;
+        RelayCommand closing;
 
         public ICommand Closed => closed ??= new RelayCommand(model.Execute_Closed, model.CanExecute_Closed);
-        RelayCommand? closed;
-
+        RelayCommand closed;
     }
 }

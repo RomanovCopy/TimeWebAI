@@ -13,13 +13,13 @@ namespace TimeWebAI.ViewModels
 {
     public class TitleBarControlViewModel:ViewModelBase, ITitleBarControlViewModel
     {
-        private readonly TitleBarConterolModel model;
+        private readonly TitleBarControlModel model;
         public string IdAgent => throw new NotImplementedException();
 
         public TitleBarControlViewModel()
         {
-            model=new TitleBarConterolModel();
-
+            model=new TitleBarControlModel();
+            model.PropertyChanged+=(s,e)=>OnPropertyChanged(e.PropertyName??string.Empty);
         }
 
 

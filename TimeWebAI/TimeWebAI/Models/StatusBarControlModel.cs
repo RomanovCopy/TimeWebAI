@@ -9,19 +9,13 @@ using TimeWebAI.Interfaces;
 
 namespace TimeWebAI.Models
 {
-    internal class WebViewControlModel: ViewModelBase,IWebViewControlModel
+    internal class StatusBarControlModel: ViewModelBase, IStatusBarControlModel
     {
-        internal WebViewControlModel()
+        internal StatusBarControlModel()
         {
-
         }
 
-
-
-
-
-
-        public bool CanExecute_Loaded(object? obj)
+        public bool CanExecute_Close(object? obj)
         {
             return true;
         }
@@ -29,7 +23,7 @@ namespace TimeWebAI.Models
         {
         }
 
-        public bool CanExecute_Close(object? obj)
+        public bool CanExecute_Loaded(object? obj)
         {
             return true;
         }

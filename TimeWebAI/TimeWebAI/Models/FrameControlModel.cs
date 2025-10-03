@@ -6,51 +6,52 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 
 using TimeWebAI.Infrastructure;
+using TimeWebAI.Interfaces;
 
 namespace TimeWebAI.Models
 {
-    internal class FrameControlModel: ViewModelBase
+    internal class FrameControlModel: ViewModelBase, IFrameControlModel
     {
-        internal Page? CurrentPage { get => currentPage; private set => SetProperty(ref currentPage, value); }
+        public Page? CurrentPage { get => currentPage; private set => SetProperty(ref currentPage, value); }
         Page? currentPage;
 
-        public FrameControlModel()
+        internal FrameControlModel()
         {
 
         }
 
 
-        internal bool CanExecute_Loaded(object? obj)
-        {
-            return true;
-        }
-        internal void Execute_Loaded(object? obj)
-        {
-        }
-
-        internal bool CanExecute_Close(object? obj)
+        public bool CanExecute_Loaded(object? obj)
         {
             return true;
         }
-        internal void Execute_Close(object? obj)
+        public void Execute_Loaded(object? obj)
         {
-
         }
 
-        internal bool CanExecute_Closing(object? obj)
-        {
-            return true;
-        }
-        internal void Execute_Closing(object? obj)
-        {
-
-        }
-
-        internal bool CanExecute_Closed(object? obj)
+        public bool CanExecute_Close(object? obj)
         {
             return true;
         }
-        internal void Execute_Closed(object? obj)
+        public void Execute_Close(object? obj)
+        {
+
+        }
+
+        public bool CanExecute_Closing(object? obj)
+        {
+            return true;
+        }
+        public void Execute_Closing(object? obj)
+        {
+
+        }
+
+        public bool CanExecute_Closed(object? obj)
+        {
+            return true;
+        }
+        public void Execute_Closed(object? obj)
         {
         }
     }

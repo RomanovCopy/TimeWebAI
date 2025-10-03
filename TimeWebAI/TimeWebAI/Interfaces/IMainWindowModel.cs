@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace TimeWebAI.Interfaces
 {
-    public interface IMainWindowViewModel:IViewModel,IWindowWithId
+    public interface IMainWindowModel:IModel,IWindowWithId
     {
         public double WindowWidth { get; set; }
         public double WindowHeight { get; set; }

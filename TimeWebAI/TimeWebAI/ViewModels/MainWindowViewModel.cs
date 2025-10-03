@@ -12,9 +12,9 @@ using TimeWebAI.Models;
 
 namespace TimeWebAI.ViewModels
 {
-    public class MainWindowViewModel:ViewModelBase, IMainWindowViewModel
+    public class MainWindowViewModel: ViewModelBase, IMainWindowViewModel
     {
-        private readonly MainWindowModel model;
+        private readonly IMainWindowModel model;
         public Guid WindowId => model.WindowId;
 
         public double WindowWidth { get => model.WindowWidth; set => model.WindowWidth = value; }
@@ -23,10 +23,10 @@ namespace TimeWebAI.ViewModels
         public double WindowLeft { get => model.WindowLeft; set => model.WindowLeft = value; }
         public WindowState WindowState { get => model.WindowState; set => model.WindowState = value; }
 
-        public MainWindowViewModel(IWindowManager windowManager)
+        public MainWindowViewModel(IMainWindowModel model, IWindowManager windowManager)
         {
-            model = new MainWindowModel(windowManager);
-            model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
+            this.model = model;
+            this.model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
         }
 
 
