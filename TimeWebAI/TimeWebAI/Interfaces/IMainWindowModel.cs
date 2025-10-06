@@ -14,5 +14,7 @@ namespace TimeWebAI.Interfaces
         public double WindowTop { get; set; }
         public double WindowLeft { get; set; }
         public WindowState WindowState { get; set; }
+
+
     }
 }

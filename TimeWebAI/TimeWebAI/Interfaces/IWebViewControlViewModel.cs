@@ -8,5 +8,6 @@ namespace TimeWebAI.Interfaces
 {
     public interface IWebViewControlViewModel:IViewModel
     {
+        string Url { get; set; }
     }
 }

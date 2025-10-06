@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 
-using Windows.AI.MachineLearning;
 
 namespace TimeWebAI.Interfaces
 {

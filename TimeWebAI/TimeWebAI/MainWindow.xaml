@@ -3,12 +3,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:interfaces="clr-namespace:TimeWebAI.Interfaces"
+        xmlns:viewmodels="clr-namespace:TimeWebAI.ViewModels"
         xmlns:markup="clr-namespace:TimeWebAI.Markup" 
         xmlns:controls="clr-namespace:TimeWebAI.AppControls"
-        Title="Timeweb AI" MinHeight="600" MinWidth="400"
-        d:DataContext="{x:Type interfaces:IMainWindowViewModel}"  >
+        xmlns:local="clr-namespace:TimeWebAI"
+        mc:Ignorable="d"
+        d:DataContext="{x:Type interfaces:IMainWindowViewModel}"
+        Title="Timeweb AI" MinHeight="600" MinWidth="400">
 
     <Window.DataContext>
         <markup:ResolveViewModel ViewModelType="{x:Type interfaces:IMainWindowViewModel}"/>

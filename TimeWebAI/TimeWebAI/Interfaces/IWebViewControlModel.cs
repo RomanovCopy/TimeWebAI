@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TimeWebAI.Interfaces
 {
-    internal interface IWebViewControlModel:IModel
+    public interface IWebViewControlModel: IModel
     {
+        string Url { get; set; }
     }
 }
