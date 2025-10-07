@@ -17,9 +17,9 @@
     <Window.DataContext>
         <markup:ResolveViewModel ViewModelType="{x:Type interfaces:IMainWindowViewModel}"/>
     </Window.DataContext>
-    <WindowChrome.WindowChrome>
+    <!--<WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0"/>
-    </WindowChrome.WindowChrome>
+    </WindowChrome.WindowChrome>-->
     <Window.Width>
         <Binding Path="WindowWidth"  Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
     </Window.Width>

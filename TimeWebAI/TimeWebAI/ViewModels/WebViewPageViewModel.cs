@@ -13,12 +13,12 @@ namespace TimeWebAI.ViewModels
 {
     public class WebViewPageViewModel:ViewModelBase, IWebViewPageViewModel
     {
-        private readonly WebViewPageModel model;
+        private readonly IWebViewPageModel model;
 
-        public WebViewPageViewModel()
+        public WebViewPageViewModel(IWebViewPageModel model)
         {
-            model=new WebViewPageModel();
-            model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
+            this.model = model;
+            this.model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
         }
 
         public ICommand PageLoaded => pageLoaded ??= new RelayCommand(model.Execute_PageLoaded, model.CanExecute_PageLoaded);

@@ -11,7 +11,7 @@ namespace TimeWebAI.Models
 {
     internal class StatusBarControlModel: ViewModelBase, IStatusBarControlModel
     {
-        internal StatusBarControlModel()
+        public StatusBarControlModel()
         {
         }
 

@@ -28,6 +28,5 @@ namespace TimeWebAI.Interfaces
         Task ReloadWithUriAsinc(string url);
         //Очистка кэша
         Task ClearCacheAsync();
-
     }
 }

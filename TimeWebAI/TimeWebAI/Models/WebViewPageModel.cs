@@ -11,7 +11,7 @@ namespace TimeWebAI.Models
 {
     internal class WebViewPageModel: ViewModelBase,IWebViewPageModel
     {
-        internal WebViewPageModel()
+        public WebViewPageModel()
         {
         }
 

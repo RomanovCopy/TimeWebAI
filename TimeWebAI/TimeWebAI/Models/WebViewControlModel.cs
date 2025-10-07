@@ -14,32 +14,33 @@ namespace TimeWebAI.Models
     {
         private readonly IWebViewService service;
 
+        private readonly string? AgentId;
+
         public string Url { get => url ?? string.Empty; set => SetProperty(ref url, value); }
         string? url;
 
-        internal WebViewControlModel(IWebViewService service)
+        public WebViewControlModel(IWebViewService service)
         {
             this.service = service ?? throw new ArgumentNullException(nameof(service));
 
             this.service.Loaded += Service_Loaded;
 
 
-            Url = Properties.Settings.Default.AgentId;
-            bool showDialog = string.IsNullOrWhiteSpace(Url);
+
+            AgentId = Properties.Settings.Default.AgentId;
+
+            bool showDialog = string.IsNullOrWhiteSpace(AgentId);
+            service.InitializeAsync();
+            string path = ExtractHtmlResourceToTemp("TimeWebAI.Resources.widget.html");
+            service.CurrentSource = new Uri(path);
+
         }
 
         private void Service_Loaded(object? sender, string e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void InitializeWebView()
-        {
             // Загружаем HTML из ресурсов на диск и получаем его адрес
             string path = ExtractHtmlResourceToTemp("TimeWebAI.Resources.widget.html");
-
             service.CurrentSource = new Uri(path);
-
         }
 
 
@@ -60,7 +61,7 @@ namespace TimeWebAI.Models
             string html = LoadHtmlFromResource(resourceFullName);
             //вставляем Id
             html = html.Replace("const agentId = window.agentId || 'default-id';",
-                    $"const agentId = '{AgentId}';");
+                    $"const agentId = '{AgentId??" "}';");
 
             //получаем адрес для сохранения файла
             string tempPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "widget.html");

@@ -5,12 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:markup="clr-namespace:TimeWebAI.Markup"
-             xmlns:interface="clr-namespace:TimeWebAI.Interfaces"
+             xmlns:interfaces="clr-namespace:TimeWebAI.Interfaces"
              xmlns:local="clr-namespace:TimeWebAI.AppControls" 
              mc:Ignorable="d"
-             d:DataContext="{x:Type interface:IWebViewControlViewModel}">
+             d:DataContext="{x:Type interfaces:IWebViewControlViewModel}">
     <UserControl.DataContext>
-        <markup:ResolveViewModel ViewModelType="{x:Type interface:IWebViewControlViewModel}"/>
+        <markup:ResolveViewModel ViewModelType="{x:Type interfaces:IWebViewControlViewModel}"/>
     </UserControl.DataContext>
     <Grid>
         <Border  BorderBrush="Black" BorderThickness="1,1,1,0" >

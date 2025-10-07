@@ -23,6 +23,11 @@ namespace TimeWebAI.Services
         // Приватный TaskCompletionSource для ожидания инициализации
         private TaskCompletionSource<bool>? _initTcs;
 
+        public WebViewService()
+        {
+
+        }
+
         // Свойства
         public Uri CurrentSource { get => this.Source; set => this.Source = value; }
         public string CurrentUrl => this.Source?.ToString() ?? string.Empty;

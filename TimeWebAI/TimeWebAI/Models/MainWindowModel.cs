@@ -39,7 +39,12 @@ namespace TimeWebAI.Models
         }
         public void Execute_Loaded(object? obj)
         {
-
+            WindowHeight = Properties.Settings.Default.WindowHeight;
+            WindowWidth = Properties.Settings.Default.WindowWidth;
+            WindowLeft = Properties.Settings.Default.WindowLeft;
+            WindowTop = Properties.Settings.Default.WindowTop;
+            var state = Properties.Settings.Default.WindowState;
+            WindowState = state == "Normal" ? WindowState.Normal : state == "Minimized" ? WindowState.Minimized : WindowState.Maximized;
         }
 
         public bool CanExecute_Close(object? obj)
@@ -57,7 +62,14 @@ namespace TimeWebAI.Models
         }
         public void Execute_Closing(object? obj)
         {
-
+            if(WindowState == WindowState.Normal)
+            {
+                Properties.Settings.Default.WindowHeight = WindowHeight;
+                Properties.Settings.Default.WindowWidth = WindowWidth;
+                Properties.Settings.Default.WindowLeft = WindowLeft;
+                Properties.Settings.Default.WindowTop = WindowTop;
+            }
+            Properties.Settings.Default.WindowState = WindowState.ToString();
         }
 
         public bool CanExecute_Closed(object? obj)

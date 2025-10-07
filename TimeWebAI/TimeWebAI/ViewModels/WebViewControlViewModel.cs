@@ -18,9 +18,10 @@ namespace TimeWebAI.ViewModels
         public string Url { get => model.Url; set => model.Url = value; }
 
 
-        public WebViewControlViewModel(IWebViewControlModel? model, IWebViewService? service)
+        public WebViewControlViewModel(IWebViewControlModel model)
         {
-            this.model = model ?? new WebViewControlModel(service ?? throw new ArgumentNullException(nameof(service)));
+            this.model = model ?? throw new ArgumentNullException(nameof(model));
+            this.model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
         }
 
         public ICommand Loaded => loaded ??= new RelayCommand(model.Execute_Loaded, model.CanExecute_Loaded);

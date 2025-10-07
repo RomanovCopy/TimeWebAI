@@ -10,6 +10,7 @@ using TimeWebAI.AppControls;
 using TimeWebAI.Infrastructure;
 using TimeWebAI.Interfaces;
 using TimeWebAI.Models;
+using TimeWebAI.Pages;
 using TimeWebAI.Services;
 using TimeWebAI.ViewModels;
 
@@ -49,6 +50,9 @@ namespace TimeWebAI.Injections
             builder.RegisterType<WebViewControlViewModel>().As<IWebViewControlViewModel>().SingleInstance();
             builder.RegisterType<WebViewPageViewModel>().As<IWebViewPageViewModel>().SingleInstance();
             builder.RegisterType<StatusBarControlViewModel>().As<IStatusBarControlViewModel>().SingleInstance();
+
+            //Pages
+            builder.RegisterType<WebViewPage>().SingleInstance();
 
             //Services
             builder.RegisterType<WindowManager>().As<IWindowManager>().SingleInstance();

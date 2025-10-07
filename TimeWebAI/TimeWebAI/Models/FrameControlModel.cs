@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Autofac;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,17 +9,20 @@ using System.Windows.Controls;
 
 using TimeWebAI.Infrastructure;
 using TimeWebAI.Interfaces;
+using TimeWebAI.Pages;
 
 namespace TimeWebAI.Models
 {
     internal class FrameControlModel: ViewModelBase, IFrameControlModel
     {
+        private readonly ILifetimeScope _scope;
+
         public Page? CurrentPage { get => currentPage; private set => SetProperty(ref currentPage, value); }
         Page? currentPage;
 
-        internal FrameControlModel()
+        public FrameControlModel(ILifetimeScope scope)
         {
-
+            _scope = scope;
         }
 
 
@@ -27,6 +32,7 @@ namespace TimeWebAI.Models
         }
         public void Execute_Loaded(object? obj)
         {
+            CurrentPage=_scope.Resolve<WebViewPage>();
         }
 
         public bool CanExecute_Close(object? obj)

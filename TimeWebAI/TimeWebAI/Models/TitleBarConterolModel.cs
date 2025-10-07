@@ -12,7 +12,7 @@ namespace TimeWebAI.Models
 {
     internal class TitleBarControlModel: ViewModelBase, ITitleBarControlModel
     {
-        internal TitleBarControlModel()
+        public TitleBarControlModel()
         {
         }
 
