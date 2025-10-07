@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,19 +13,27 @@ using TimeWebAI.Models;
 
 namespace TimeWebAI.ViewModels
 {
-    public class FrameControlViewModel:ViewModelBase,IFrameControlViewModel
+    public class FrameControlViewModel: ViewModelBase, IFrameControlViewModel
     {
         private readonly IFrameControlModel model;
 
+        //IFrameControlViewModel
         public Page? CurrentPage => model.CurrentPage;
+        public ObservableCollection<Page?>? Pages => model.Pages;
+
 
         public FrameControlViewModel(IFrameControlModel model)
         {
-            this.model = model;
+            this.model = model ?? throw new ArgumentNullException(nameof(model));
             this.model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
         }
 
+        //IFrameControlViewModel
+        public ICommand NavigateTo => navigateTo ?? new RelayCommand(model.Execute_NavigateTo, model.CanExecute_NavigateTo);
+        RelayCommand? navigateTo;
 
+
+        //IViewModel
         public ICommand Loaded => loaded ??= new RelayCommand(model.Execute_Loaded, model.CanExecute_Loaded);
         RelayCommand? loaded;
 

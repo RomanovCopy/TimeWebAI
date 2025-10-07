@@ -70,6 +70,7 @@ namespace TimeWebAI.Models
                 Properties.Settings.Default.WindowTop = WindowTop;
             }
             Properties.Settings.Default.WindowState = WindowState.ToString();
+            Properties.Settings.Default.Save();
         }
 
         public bool CanExecute_Closed(object? obj)

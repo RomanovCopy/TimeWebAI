@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using TimeWebAI.AppControls;
+using TimeWebAI.Factories;
 using TimeWebAI.Infrastructure;
 using TimeWebAI.Interfaces;
 using TimeWebAI.Models;
@@ -34,6 +35,7 @@ namespace TimeWebAI.Injections
             builder.RegisterType<FrameControl>().SingleInstance();
             builder.RegisterType<WebViewControl>().SingleInstance();
             builder.RegisterType<StatusBarControl>().SingleInstance();
+            builder.RegisterType<TitleBarPagesControl>().SingleInstance();
 
             //Models
             builder.RegisterType<WebViewControlModel>().As<IWebViewControlModel>().SingleInstance();
@@ -42,6 +44,7 @@ namespace TimeWebAI.Injections
             builder.RegisterType<MainWindowModel>().As<IMainWindowModel>().SingleInstance();
             builder.RegisterType<StatusBarControlModel>().As<IStatusBarControlModel>().SingleInstance();
             builder.RegisterType<WebViewPageModel>().As<IWebViewPageModel>().SingleInstance();
+            builder.RegisterType<TitleBarPagesControlModel>().As<ITitleBarPagesControlModel>().SingleInstance();
 
             //ViewModels
             builder.RegisterType<TitleBarControlViewModel>().As<ITitleBarControlViewModel>().SingleInstance();
@@ -50,6 +53,11 @@ namespace TimeWebAI.Injections
             builder.RegisterType<WebViewControlViewModel>().As<IWebViewControlViewModel>().SingleInstance();
             builder.RegisterType<WebViewPageViewModel>().As<IWebViewPageViewModel>().SingleInstance();
             builder.RegisterType<StatusBarControlViewModel>().As<IStatusBarControlViewModel>().SingleInstance();
+            builder.RegisterType<TitleBarPagesControlViewModel>().As<ITitleBarPagesControlViewModel>().SingleInstance();
+
+            //Factories
+            builder.RegisterType<PageFactory>().As<IPageFactory>();
+
 
             //Pages
             builder.RegisterType<WebViewPage>().SingleInstance();
