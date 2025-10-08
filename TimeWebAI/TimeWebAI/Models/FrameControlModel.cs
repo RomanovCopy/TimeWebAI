@@ -33,11 +33,18 @@ namespace TimeWebAI.Models
 
         public bool CanExecute_NavigateTo(object? obj)
         {
-            throw new NotImplementedException();
+            if(obj is Page page && Pages?.Contains(page) == true && !page.Equals(CurrentPage))
+            {
+                return true;
+            }
+            return true;
         }
         public void Execute_NavigateTo(object? obj)
         {
-            throw new NotImplementedException();
+            if(obj is Page page)
+            {
+                CurrentPage = page;
+            }
         }
 
 
@@ -91,6 +98,7 @@ namespace TimeWebAI.Models
             }
 
         }
+
 
     }
 }

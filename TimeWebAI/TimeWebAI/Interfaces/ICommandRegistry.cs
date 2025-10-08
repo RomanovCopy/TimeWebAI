@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace TimeWebAI.Interfaces
 {
-    public interface ITitleBarPagesControlViewModel:IViewModel
+    internal interface ICommandRegistry
     {
-        ICommand NavigateTo {  get; }   
+        void RegistryCommands();
     }
 }

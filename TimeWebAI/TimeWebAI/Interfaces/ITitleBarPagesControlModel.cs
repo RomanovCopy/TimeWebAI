@@ -8,6 +8,7 @@ namespace TimeWebAI.Interfaces
 {
     public interface ITitleBarPagesControlModel:IModel
     {
-
+        bool CanExecute_NavigateTo(object? obj);
+        void Execute_NavigateTo(object? obj);
     }
 }

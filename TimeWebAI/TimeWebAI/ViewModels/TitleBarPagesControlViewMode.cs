@@ -13,9 +13,15 @@ namespace TimeWebAI.ViewModels
 {
     public class TitleBarPagesControlViewModel:ViewModelBase, ITitleBarPagesControlViewModel
     {
-        public TitleBarPagesControlViewModel()
+        private readonly ITitleBarPagesControlModel model;
+        public TitleBarPagesControlViewModel(ITitleBarPagesControlModel model)
         {
+            this.model = model;
         }
+
+        public ICommand NavigateTo => navigateTo??new RelayCommand(model.Execute_NavigateTo, model.CanExecute_NavigateTo);
+        RelayCommand? navigateTo;
+
 
         public ICommand Loaded => throw new NotImplementedException();
 

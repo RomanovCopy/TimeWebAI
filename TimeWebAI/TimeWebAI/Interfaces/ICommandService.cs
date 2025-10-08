@@ -7,8 +7,9 @@ using System.Windows.Input;
 
 namespace TimeWebAI.Interfaces
 {
-    public interface ITitleBarPagesControlViewModel:IViewModel
+    public interface ICommandService
     {
-        ICommand NavigateTo {  get; }   
+        void Register(CommandKey key, ICommand command);
+        ICommand? GetCommand(CommandKey key);
     }
 }

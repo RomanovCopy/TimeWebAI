@@ -13,19 +13,23 @@ using TimeWebAI.Models;
 
 namespace TimeWebAI.ViewModels
 {
-    public class FrameControlViewModel: ViewModelBase, IFrameControlViewModel
+    public class FrameControlViewModel: ViewModelBase, IFrameControlViewModel, ICommandRegistry
     {
         private readonly IFrameControlModel model;
+        private readonly ICommandService commandService;
+
 
         //IFrameControlViewModel
         public Page? CurrentPage => model.CurrentPage;
         public ObservableCollection<Page?>? Pages => model.Pages;
 
 
-        public FrameControlViewModel(IFrameControlModel model)
+        public FrameControlViewModel(IFrameControlModel model, ICommandService commandService)
         {
             this.model = model ?? throw new ArgumentNullException(nameof(model));
+            this.commandService = commandService?? throw new ArgumentNullException(nameof(commandService));
             this.model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
+            RegistryCommands();
         }
 
         //IFrameControlViewModel
@@ -46,5 +50,9 @@ namespace TimeWebAI.ViewModels
         public ICommand Closed => closed ??= new RelayCommand(model.Execute_Closed, model.CanExecute_Closed);
         RelayCommand? closed;
 
+        public void RegistryCommands()
+        {
+            commandService.Register(CommandKey.FrameControl_NavigateTo, NavigateTo);
+        }
     }
 }

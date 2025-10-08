@@ -65,6 +65,8 @@ namespace TimeWebAI.Injections
             //Services
             builder.RegisterType<WindowManager>().As<IWindowManager>().SingleInstance();
             builder.RegisterType<WebViewService>().As<IWebViewService>().SingleInstance();
+            builder.RegisterType<CommandService>().As<ICommandService>().SingleInstance();
+
 
 
             var container = builder.Build();
