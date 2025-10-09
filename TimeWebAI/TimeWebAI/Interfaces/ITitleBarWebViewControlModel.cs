@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TimeWebAI.Interfaces
+{
+    public interface ITitleBarWebViewControlModel:IModel
+    {
+        bool CanExecute_NewAgent(object? obj);
+        void Execute_NewAgent(object? obj);
+    }
+}

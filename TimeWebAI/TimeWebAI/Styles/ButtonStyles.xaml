@@ -171,20 +171,6 @@
 
 
 
-    <!-- Цвета можно править под свою тему --><!--
-    <Color x:Key="BtnBg">#3B82F6</Color>
-    --><!-- обычное --><!--
-    <Color x:Key="BtnBgHover">#2563EB</Color>
-    --><!-- hover --><!--
-    <Color x:Key="BtnBgPressed">#1D4ED8</Color>
-    --><!-- pressed --><!--
-    <Color x:Key="BtnBorder">#2563EB</Color>
-    <Color x:Key="BtnBorderHover">#1D4ED8</Color>
-    <Color x:Key="BtnBorderPressed">#1E40AF</Color>
-    <Color x:Key="BtnDisabledBg">#E5E7EB</Color>
-    <Color x:Key="BtnDisabledBorder">#CBD5E1</Color>
-    <Color x:Key="BtnDisabledFg">#9CA3AF</Color>
-    <Color x:Key="BtnFocusBorder">#93C5FD</Color>-->
 
     <!-- Цвета кнопки — уже как Brush, не Color -->
     <SolidColorBrush x:Key="BtnBg">#FF3B82F6</SolidColorBrush>

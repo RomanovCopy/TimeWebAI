@@ -13,6 +13,11 @@
         <markup:ResolveViewModel ViewModelType="{x:Type interfaces:IWebViewPageViewModel}"/>
     </Page.DataContext>
     <Grid>
-        <ContentControl Content="{markup:ResolveUserControl UserControlType={x:Type controls:WebViewControl}}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ContentControl Grid.Row="0" Content="{markup:ResolveUserControl UserControlType={x:Type controls:TitleBarWebViewControl}}"/>
+        <ContentControl Grid.Row="1" Content="{markup:ResolveUserControl UserControlType={x:Type controls:WebViewControl}}"/>
     </Grid>
 </Page>
