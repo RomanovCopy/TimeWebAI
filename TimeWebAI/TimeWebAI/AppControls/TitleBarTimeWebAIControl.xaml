@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="TimeWebAI.AppControls.TitleBarWebViewControl"
+﻿<UserControl x:Class="TimeWebAI.AppControls.TitleBarTimeWebAIControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,9 +7,9 @@
              xmlns:markup="clr-namespace:TimeWebAI.Markup"
              xmlns:local="clr-namespace:TimeWebAI.AppControls"
              mc:Ignorable="d" 
-             d:DataContext="{x:Type interfaces:ITitleBarWebViewControlViewModel}">
+             d:DataContext="{x:Type interfaces:ITitleBarTimeWebAIControlViewModel}">
     <UserControl.DataContext>
-        <markup:ResolveViewModel ViewModelType="{x:Type interfaces:ITitleBarWebViewControlViewModel}"/>
+        <markup:ResolveViewModel ViewModelType="{x:Type interfaces:ITitleBarTimeWebAIControlViewModel}"/>
     </UserControl.DataContext>
     <UserControl.Resources>
         <Style TargetType="Popup">

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace TimeWebAI.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для WebViewPage.xaml
+    /// Логика взаимодействия для TimeWebAIPage.xaml
     /// </summary>
-    public partial class WebViewPage: Page
+    public partial class TimeWebAIPage: Page
     {
-        public WebViewPage()
+        public TimeWebAIPage()
         {
             InitializeComponent();
         }

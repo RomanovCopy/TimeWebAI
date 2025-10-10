@@ -9,7 +9,7 @@ using TimeWebAI.Infrastructure;
 
 namespace TimeWebAI.Interfaces
 {
-    public interface IWebViewPageViewModel:IViewModel
+    public interface ITimeWebAIPageViewModel:IViewModel
     {
         /// <summary>
         /// команда обработки события окончания загрузки страницы

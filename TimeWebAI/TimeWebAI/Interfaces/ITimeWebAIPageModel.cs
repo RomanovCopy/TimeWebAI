@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TimeWebAI.Interfaces
 {
-    public interface IWebViewPageModel:IModel
+    public interface ITimeWebAIPageModel:IModel
     {
         bool CanExecute_PageLoaded(object? obj);
         void Execute_PageLoaded(object? obj);

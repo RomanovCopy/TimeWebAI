@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="TimeWebAI.AppControls.WebViewControl"
+﻿<UserControl x:Class="TimeWebAI.AppControls.TimeWebAIControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,9 +8,9 @@
              xmlns:interfaces="clr-namespace:TimeWebAI.Interfaces"
              xmlns:local="clr-namespace:TimeWebAI.AppControls" 
              mc:Ignorable="d"
-             d:DataContext="{x:Type interfaces:IWebViewControlViewModel}">
+             d:DataContext="{x:Type interfaces:ITimeWebAIControlViewModel}">
     <UserControl.DataContext>
-        <markup:ResolveViewModel ViewModelType="{x:Type interfaces:IWebViewControlViewModel}"/>
+        <markup:ResolveViewModel ViewModelType="{x:Type interfaces:ITimeWebAIControlViewModel}"/>
     </UserControl.DataContext>
     <Grid>
         <Border  BorderBrush="Black" BorderThickness="1,1,1,0" >

@@ -11,11 +11,11 @@ using TimeWebAI.Interfaces;
 
 namespace TimeWebAI.ViewModels
 {
-    public class TitleBarWebViewControlViewModel:ViewModelBase, ITitleBarWebViewControlViewModel
-    {
-        private readonly ITitleBarWebViewControlModel model;
+    public class TitleBarTimeWebAIControlViewModel: ViewModelBase, ITitleBarTimeWebAIControlViewModel
+	{
+        private readonly ITitleBarTimeWebAIControlModel model;
 
-        public TitleBarWebViewControlViewModel(ITitleBarWebViewControlModel model)
+        public TitleBarTimeWebAIControlViewModel(ITitleBarTimeWebAIControlModel model)
         {
             this.model = model;
         }

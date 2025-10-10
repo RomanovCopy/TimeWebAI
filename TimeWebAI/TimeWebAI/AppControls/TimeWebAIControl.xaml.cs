@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace TimeWebAI.AppControls
 {
     /// <summary>
-    /// Логика взаимодействия для WebViewControl.xaml
+    /// Логика взаимодействия для TimeWebAIControl.xaml
     /// </summary>
-    public partial class WebViewControl: UserControl
+    public partial class TimeWebAIControl: UserControl
     {
-        public WebViewControl()
+        public TimeWebAIControl()
         {
             InitializeComponent();
         }

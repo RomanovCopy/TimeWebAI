@@ -11,18 +11,21 @@ using TimeWebAI.Models;
 
 namespace TimeWebAI.ViewModels
 {
-    public class WebViewControlViewModel: ViewModelBase, IWebViewControlViewModel
+    public class TimeWebAIPageViewModel:ViewModelBase, ITimeWebAIPageViewModel
     {
-        private readonly IWebViewControlModel model;
+        private readonly ITimeWebAIPageModel model;
 
-        public string Url { get => model.Url; set => model.Url = value; }
-
-
-        public WebViewControlViewModel(IWebViewControlModel model)
+        public TimeWebAIPageViewModel(ITimeWebAIPageModel model)
         {
-            this.model = model ?? throw new ArgumentNullException(nameof(model));
+            this.model = model;
             this.model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
         }
+
+        public ICommand PageLoaded => pageLoaded ??= new RelayCommand(model.Execute_PageLoaded, model.CanExecute_PageLoaded);
+        RelayCommand? pageLoaded;
+
+        public ICommand PageClear => pageClear ?? new RelayCommand(model.Execute_PageClear, model.CanExecute_PageClear);
+        RelayCommand? pageClear;
 
         public ICommand Loaded => loaded ??= new RelayCommand(model.Execute_Loaded, model.CanExecute_Loaded);
         RelayCommand? loaded;

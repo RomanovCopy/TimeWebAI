@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace TimeWebAI.Interfaces
 {
-    public interface IWebViewControlViewModel:IViewModel
+    public interface ITitleBarTimeWebAIControlModel: IModel
     {
-        string Url { get; set; }
+        bool CanExecute_NewAgent(object? obj);
+        void Execute_NewAgent(object? obj);
     }
 }

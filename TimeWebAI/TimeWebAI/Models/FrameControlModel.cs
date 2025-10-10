@@ -90,7 +90,7 @@ namespace TimeWebAI.Models
         private void LoadPages()
         {
             // Список типов страниц
-            var pageTypes = new[] { typeof(WebViewPage) };
+            var pageTypes = new[] { typeof(TimeWebAIPage) };
 
             foreach(var type in pageTypes)
             {

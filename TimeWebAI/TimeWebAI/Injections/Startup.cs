@@ -33,37 +33,37 @@ namespace TimeWebAI.Injections
             //Controls
             builder.RegisterType<TitleBarControl>().SingleInstance();
             builder.RegisterType<FrameControl>().SingleInstance();
-            builder.RegisterType<WebViewControl>().SingleInstance();
+            builder.RegisterType<TimeWebAIControl>().SingleInstance();
             builder.RegisterType<StatusBarControl>().SingleInstance();
             builder.RegisterType<TitleBarPagesControl>().SingleInstance();
-            builder.RegisterType<TitleBarWebViewControl>().SingleInstance();
+            builder.RegisterType<TitleBarTimeWebAIControl>().SingleInstance();
 
             //Models
-            builder.RegisterType<WebViewControlModel>().As<IWebViewControlModel>().SingleInstance();
+            builder.RegisterType<TimeWebAIControlModel>().As<ITimeWebAIControlModel>().SingleInstance();
             builder.RegisterType<FrameControlModel>().As<IFrameControlModel>().SingleInstance();
             builder.RegisterType<TitleBarControlModel>().As<ITitleBarControlModel>().SingleInstance();
             builder.RegisterType<MainWindowModel>().As<IMainWindowModel>().SingleInstance();
             builder.RegisterType<StatusBarControlModel>().As<IStatusBarControlModel>().SingleInstance();
-            builder.RegisterType<WebViewPageModel>().As<IWebViewPageModel>().SingleInstance();
+            builder.RegisterType<TimeWebAIPageModel>().As<ITimeWebAIPageModel>().SingleInstance();
             builder.RegisterType<TitleBarPagesControlModel>().As<ITitleBarPagesControlModel>().SingleInstance();
-            builder.RegisterType<TitleBarWebViewControlModel>().As<ITitleBarWebViewControlModel>().SingleInstance();
+            builder.RegisterType<TitleBarTimeWebAIControlModel>().As<ITitleBarTimeWebAIControlModel>().SingleInstance();
 
             //ViewModels
             builder.RegisterType<TitleBarControlViewModel>().As<ITitleBarControlViewModel>().SingleInstance();
             builder.RegisterType<FrameControlViewModel>().As<IFrameControlViewModel>().SingleInstance();
             builder.RegisterType<MainWindowViewModel>().As<IMainWindowViewModel>().SingleInstance();
-            builder.RegisterType<WebViewControlViewModel>().As<IWebViewControlViewModel>().SingleInstance();
-            builder.RegisterType<WebViewPageViewModel>().As<IWebViewPageViewModel>().SingleInstance();
+            builder.RegisterType<TimeWebAIControlViewModel>().As<ITimeWebAIControlViewModel>().SingleInstance();
+            builder.RegisterType<TimeWebAIPageViewModel>().As<ITimeWebAIPageViewModel>().SingleInstance();
             builder.RegisterType<StatusBarControlViewModel>().As<IStatusBarControlViewModel>().SingleInstance();
             builder.RegisterType<TitleBarPagesControlViewModel>().As<ITitleBarPagesControlViewModel>().SingleInstance();
-            builder.RegisterType<TitleBarWebViewControlViewModel>().As<ITitleBarWebViewControlViewModel>().SingleInstance();
+            builder.RegisterType<TitleBarTimeWebAIControlViewModel>().As<ITitleBarTimeWebAIControlViewModel>().SingleInstance();
 
             //Factories
             builder.RegisterType<PageFactory>().As<IPageFactory>();
 
 
             //Pages
-            builder.RegisterType<WebViewPage>().SingleInstance();
+            builder.RegisterType<TimeWebAIPage>().SingleInstance();
 
             //Services
             builder.RegisterType<WindowManager>().As<IWindowManager>().SingleInstance();

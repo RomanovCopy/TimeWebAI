@@ -10,7 +10,7 @@ using TimeWebAI.Interfaces;
 
 namespace TimeWebAI.Models
 {
-    public class WebViewControlModel: ViewModelBase, IWebViewControlModel
+    public class TimeWebAIControlModel: ViewModelBase, ITimeWebAIControlModel
     {
         private readonly IWebViewService service;
 
@@ -19,7 +19,7 @@ namespace TimeWebAI.Models
         public string Url { get => url ?? string.Empty; set => SetProperty(ref url, value); }
         string? url;
 
-        public WebViewControlModel(IWebViewService service)
+        public TimeWebAIControlModel(IWebViewService service)
         {
             this.service = service ?? throw new ArgumentNullException(nameof(service));
 

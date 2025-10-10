@@ -35,7 +35,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Button Grid.Column="0" Content="AI" Command="{Binding NavigateTo, UpdateSourceTrigger=PropertyChanged}"
-                        CommandParameter="{markup:ResolvePage PageType=pages:WebViewPage}" HorizontalAlignment="Stretch"/>
+                        CommandParameter="{markup:ResolvePage PageType=pages:TimeWebAIPage}" HorizontalAlignment="Stretch"/>
             </Grid>
         </Border>   
     </Grid>
