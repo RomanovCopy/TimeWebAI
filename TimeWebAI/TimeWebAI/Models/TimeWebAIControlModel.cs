@@ -62,7 +62,6 @@ namespace TimeWebAI.Models
             //вставляем Id
             html = html.Replace("const agentId = window.agentId || 'default-id';",
                     $"const agentId = '{AgentId??" "}';");
-
             //получаем адрес для сохранения файла
             string tempPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "widget.html");
             //сохраняем файл

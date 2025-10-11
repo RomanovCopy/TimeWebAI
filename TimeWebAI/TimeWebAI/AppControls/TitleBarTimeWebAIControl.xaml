@@ -20,7 +20,17 @@
         <Style TargetType="Button" BasedOn="{StaticResource PrimaryButtonStyle}">
             <Setter Property="Margin" Value="1"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsAgent}" Value="True">
+                    <Setter Property="Content" Value="Delete Agent"/>
+                    <Setter Property="Foreground" Value="Red"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsAgent}" Value="False">
+                    <Setter Property="Content" Value="New Agent"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
     </UserControl.Resources>
     <Grid>
@@ -36,7 +46,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="New Agent" Command="{Binding NewAgent, UpdateSourceTrigger=PropertyChanged}"
+                <Button Grid.Column="0" Command="{Binding NewAgent, UpdateSourceTrigger=PropertyChanged}"
                         HorizontalAlignment="Stretch"/>
             </Grid>
         </Border>

@@ -31,13 +31,13 @@
             script.type = 'module';
             script.src = 'https://st.timeweb.com/cloud-static/cloud-ai/agent-widget/agent-chat-widget.js';
 
+            
             script.onload = () => {
                 const widget = document.createElement('agent-chat-widget');
                 widget.setAttribute('agentid', agentId);
                 widget.setAttribute('wsurl', wsUrl);
                 widget.setAttribute('is-collapsed', isCollapsed);
                 document.body.appendChild(widget);
-
                 setTimeout(() => {
                     // Разворачиваем на весь экран
                     if (typeof widget._enterFullscreen === 'function') widget._enterFullscreen();

@@ -15,9 +15,12 @@ namespace TimeWebAI.ViewModels
 	{
         private readonly ITitleBarTimeWebAIControlModel model;
 
+        public bool IsAgent=>model.IsAgent;
+
         public TitleBarTimeWebAIControlViewModel(ITitleBarTimeWebAIControlModel model)
         {
             this.model = model;
+            this.model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
         }
 
         public ICommand NewAgent => newAgent??=new RelayCommand(model.Execute_NewAgent, model.CanExecute_NewAgent);

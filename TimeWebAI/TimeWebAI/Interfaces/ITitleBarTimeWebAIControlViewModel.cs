@@ -9,6 +9,7 @@ namespace TimeWebAI.Interfaces
 {
     public interface ITitleBarTimeWebAIControlViewModel: IViewModel
     {
+        bool IsAgent {  get; }
         public ICommand NewAgent {  get; }
     }
 }

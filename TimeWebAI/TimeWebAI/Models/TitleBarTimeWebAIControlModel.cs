@@ -12,9 +12,13 @@ namespace TimeWebAI.Models
 {
     public class TitleBarTimeWebAIControlModel: ViewModelBase, ITitleBarTimeWebAIControlModel
 	{
+        public bool IsAgent { get => isAgent; private set => SetProperty(ref isAgent, value); }
+        bool isAgent;
 
         public TitleBarTimeWebAIControlModel()
         {
+            var agent = Properties.Settings.Default.AgentId;
+            IsAgent=!string.IsNullOrEmpty(agent);
         }
 
         public bool CanExecute_NewAgent(object? obj)
@@ -24,6 +28,7 @@ namespace TimeWebAI.Models
 
         public void Execute_NewAgent(object? obj)
         {
+            IsAgent = !IsAgent;
         }
 
         public bool CanExecute_Close(object? obj)
@@ -61,5 +66,6 @@ namespace TimeWebAI.Models
         public void Execute_Closed(object? obj)
         {
         }
+
     }
 }

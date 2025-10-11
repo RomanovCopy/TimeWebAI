@@ -8,6 +8,7 @@ namespace TimeWebAI.Interfaces
 {
     public interface ITitleBarTimeWebAIControlModel: IModel
     {
+        bool IsAgent {  get; }
         bool CanExecute_NewAgent(object? obj);
         void Execute_NewAgent(object? obj);
     }
