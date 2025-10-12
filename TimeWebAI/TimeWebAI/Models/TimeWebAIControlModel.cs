@@ -36,39 +36,16 @@ namespace TimeWebAI.Models
 
         }
 
-        private void Service_Loaded(object? sender, string e)
+
+        public bool CanExecuteNewAgent(object? obj)
         {
-            // Загружаем HTML из ресурсов на диск и получаем его адрес
-            string path = ExtractHtmlResourceToTemp("TimeWebAI.Resources.widget.html");
-            service.CurrentSource = new Uri(path);
+            throw new NotImplementedException();
         }
 
-
-        private string LoadHtmlFromResource(string resourceFullName)
+        public void ExecuteNewAgent(object? obj)
         {
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            using var stream = assembly.GetManifestResourceStream(resourceFullName);
-            if(stream == null)
-                throw new Exception($"Ресурс {resourceFullName} не найден!");
-            using var reader = new StreamReader(stream);
-            return reader.ReadToEnd();
-
+            throw new NotImplementedException();
         }
-
-        private string ExtractHtmlResourceToTemp(string resourceFullName)
-        {
-            //считываем из ресурсов
-            string html = LoadHtmlFromResource(resourceFullName);
-            //вставляем Id
-            html = html.Replace("const agentId = window.agentId || 'default-id';",
-                    $"const agentId = '{AgentId??" "}';");
-            //получаем адрес для сохранения файла
-            string tempPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "widget.html");
-            //сохраняем файл
-            File.WriteAllText(tempPath, html);
-            return tempPath;
-        }
-
 
 
 
@@ -104,6 +81,42 @@ namespace TimeWebAI.Models
         public void Execute_Closed(object? obj)
         {
         }
+
+
+
+        private void Service_Loaded(object? sender, string e)
+        {
+            // Загружаем HTML из ресурсов на диск и получаем его адрес
+            string path = ExtractHtmlResourceToTemp("TimeWebAI.Resources.widget.html");
+            service.CurrentSource = new Uri(path);
+        }
+
+
+        private string LoadHtmlFromResource(string resourceFullName)
+        {
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            using var stream = assembly.GetManifestResourceStream(resourceFullName);
+            if(stream == null)
+                throw new Exception($"Ресурс {resourceFullName} не найден!");
+            using var reader = new StreamReader(stream);
+            return reader.ReadToEnd();
+
+        }
+
+        private string ExtractHtmlResourceToTemp(string resourceFullName)
+        {
+            //считываем из ресурсов
+            string html = LoadHtmlFromResource(resourceFullName);
+            //вставляем Id
+            html = html.Replace("const agentId = window.agentId || 'default-id';",
+                    $"const agentId = '{AgentId ?? " "}';");
+            //получаем адрес для сохранения файла
+            string tempPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "widget.html");
+            //сохраняем файл
+            File.WriteAllText(tempPath, html);
+            return tempPath;
+        }
+
 
     }
 }

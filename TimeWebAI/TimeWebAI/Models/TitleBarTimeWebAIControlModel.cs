@@ -29,6 +29,13 @@ namespace TimeWebAI.Models
         public void Execute_NewAgent(object? obj)
         {
             IsAgent = !IsAgent;
+            if(IsAgent)
+            {
+
+            } else
+            {
+
+            }
         }
 
         public bool CanExecute_Close(object? obj)

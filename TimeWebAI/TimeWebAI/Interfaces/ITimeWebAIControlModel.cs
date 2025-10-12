@@ -9,5 +9,8 @@ namespace TimeWebAI.Interfaces
     public interface ITimeWebAIControlModel: IModel
     {
         string Url { get; set; }
+
+        bool CanExecuteNewAgent(object? obj);
+        void ExecuteNewAgent(object? obj);
     }
 }

@@ -24,6 +24,8 @@ namespace TimeWebAI.ViewModels
             this.model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
         }
 
+
+
         public ICommand Loaded => loaded ??= new RelayCommand(model.Execute_Loaded, model.CanExecute_Loaded);
         RelayCommand? loaded;
 
@@ -35,5 +37,7 @@ namespace TimeWebAI.ViewModels
 
         public ICommand Closed => closed ??= new RelayCommand(model.Execute_Closed, model.CanExecute_Closed);
         RelayCommand? closed;
+
+        public ICommand NewAgent => throw new NotImplementedException();
     }
 }
