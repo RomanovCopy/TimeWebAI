@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using TimeWebAI.Infrastructure;
 using TimeWebAI.Interfaces;
+using TimeWebAI.Regexes;
 
 namespace TimeWebAI.Models
 {
     public class TimeWebAIControlModel: ViewModelBase, ITimeWebAIControlModel
     {
+
         private readonly IWebViewService service;
 
         private readonly string? AgentId;
@@ -22,10 +25,6 @@ namespace TimeWebAI.Models
         public TimeWebAIControlModel(IWebViewService service)
         {
             this.service = service ?? throw new ArgumentNullException(nameof(service));
-
-            this.service.Loaded += Service_Loaded;
-
-
 
             AgentId = Properties.Settings.Default.AgentId;
 
@@ -39,12 +38,18 @@ namespace TimeWebAI.Models
 
         public bool CanExecuteNewAgent(object? obj)
         {
-            throw new NotImplementedException();
+            if(obj is string str)
+            {
+                return RegexPatterns.IsGuid(str);
+            }
+            return false;
+
+
         }
 
         public void ExecuteNewAgent(object? obj)
         {
-            throw new NotImplementedException();
+
         }
 
 
@@ -83,13 +88,6 @@ namespace TimeWebAI.Models
         }
 
 
-
-        private void Service_Loaded(object? sender, string e)
-        {
-            // Загружаем HTML из ресурсов на диск и получаем его адрес
-            string path = ExtractHtmlResourceToTemp("TimeWebAI.Resources.widget.html");
-            service.CurrentSource = new Uri(path);
-        }
 
 
         private string LoadHtmlFromResource(string resourceFullName)
