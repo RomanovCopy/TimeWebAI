@@ -7,6 +7,11 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Styles/ButtonStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="CurrentWindowBackground" Color="Gray" />
+            <SolidColorBrush x:Key="CurrentWindowForeground" Color="Black" />
+            <SolidColorBrush x:Key="CurrentTitleBarBackground" Color="Gray" />
+            <SolidColorBrush x:Key="CurrentTitleBarForeground" Color="Black" />
+            <SolidColorBrush x:Key="CurrentBorderColor" Color="Black" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
