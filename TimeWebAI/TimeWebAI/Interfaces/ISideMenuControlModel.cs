@@ -10,6 +10,6 @@ namespace TimeWebAI.Interfaces
     public interface ISideMenuControlModel:IModel
     {
         public bool IsMenuOpen { get; }
-        ObservableCollection<ISideMenuViewModel> Items { get; }
+        ObservableCollection<ISideMenuItemViewModel> Items { get; }
     }
 }

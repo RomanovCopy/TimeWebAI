@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TimeWebAI.Interfaces
 {
-    public interface ISideMenuViewModel
+    public interface ISideMenuItemViewModel
     {
     }
 }

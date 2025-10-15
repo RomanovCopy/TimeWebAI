@@ -16,13 +16,13 @@ namespace TimeWebAI.Models
         public bool IsMenuOpen { get => _isMenuOpen; private set => SetProperty(ref _isMenuOpen, value); }
         bool _isMenuOpen;
 
-        public ObservableCollection<ISideMenuViewModel> Items { get => _items; private set => SetProperty(ref _items, value); }
-        ObservableCollection<ISideMenuViewModel> _items;
+        public ObservableCollection<ISideMenuItemViewModel> Items { get => _items; private set => SetProperty(ref _items, value); }
+        ObservableCollection<ISideMenuItemViewModel> _items;
 
         public SideMenuControlModel()
         {
             _isMenuOpen = false;
-            _items = new ObservableCollection<ISideMenuViewModel>();
+            _items = new ObservableCollection<ISideMenuItemViewModel>();
         }
 
 

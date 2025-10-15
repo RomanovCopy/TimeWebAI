@@ -13,23 +13,23 @@ namespace TimeWebAI.ViewModels
 {
     public class StatusBarControlViewModel:ViewModelBase,IStatusBarControlViewModel
     {
-        private readonly StatusBarControlModel model;
-        public StatusBarControlViewModel()
+        private readonly IStatusBarControlModel _model;
+        public StatusBarControlViewModel(IStatusBarControlModel model)
         {
-            model = new StatusBarControlModel();
-            model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
+            _model = model ?? throw new ArgumentNullException(nameof(model));
+            _model.PropertyChanged += (s, e) => OnPropertyChanged(e.PropertyName ?? string.Empty);
         }
 
-        public ICommand Loaded => loaded ??= new RelayCommand(model.Execute_Loaded, model.CanExecute_Loaded);
-        RelayCommand loaded;
+        public ICommand Loaded => loaded ??= new RelayCommand(_model.Execute_Loaded, _model.CanExecute_Loaded);
+        RelayCommand? loaded;
 
-        public ICommand Close => close ??= new RelayCommand(model.Execute_Close, model.CanExecute_Close);
-        RelayCommand close;
+        public ICommand Close => close ??= new RelayCommand(_model.Execute_Close, _model.CanExecute_Close);
+        RelayCommand? close;
 
-        public ICommand Closing => closing ??= new RelayCommand(model.Execute_Closing, model.CanExecute_Closing);
-        RelayCommand closing;
+        public ICommand Closing => closing ??= new RelayCommand(_model.Execute_Closing, _model.CanExecute_Closing);
+        RelayCommand? closing;
 
-        public ICommand Closed => closed ??= new RelayCommand(model.Execute_Closed, model.CanExecute_Closed);
-        RelayCommand closed;
+        public ICommand Closed => closed ??= new RelayCommand(_model.Execute_Closed, _model.CanExecute_Closed);
+        RelayCommand? closed;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TimeWebAI.Interfaces
 {
-    internal interface IStatusBarControlModel:IModel
+    public interface IStatusBarControlModel:IModel
     {
     }
 }

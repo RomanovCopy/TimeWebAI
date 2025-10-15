@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using TimeWebAI.AppControls;
+using TimeWebAI.Converters;
 using TimeWebAI.Factories;
 using TimeWebAI.Infrastructure;
 using TimeWebAI.Interfaces;
@@ -30,6 +31,9 @@ namespace TimeWebAI.Injections
             builder.RegisterType<MainWindowViewModel>().As<IMainWindowViewModel>().SingleInstance();
             builder.RegisterType<MainWindow>().SingleInstance();
 
+            //Converters
+            builder.RegisterType<VisibilityConverter>().SingleInstance();
+
             //Controls
             builder.RegisterType<TitleBarControl>().SingleInstance();
             builder.RegisterType<FrameControl>().SingleInstance();
@@ -37,6 +41,7 @@ namespace TimeWebAI.Injections
             builder.RegisterType<StatusBarControl>().SingleInstance();
             builder.RegisterType<TitleBarPagesControl>().SingleInstance();
             builder.RegisterType<TitleBarTimeWebAIControl>().SingleInstance();
+            builder.RegisterType<SideMenuControl>().SingleInstance();
 
             //Models
             builder.RegisterType<TimeWebAIControlModel>().As<ITimeWebAIControlModel>().SingleInstance();
@@ -47,6 +52,7 @@ namespace TimeWebAI.Injections
             builder.RegisterType<TimeWebAIPageModel>().As<ITimeWebAIPageModel>().SingleInstance();
             builder.RegisterType<TitleBarPagesControlModel>().As<ITitleBarPagesControlModel>().SingleInstance();
             builder.RegisterType<TitleBarTimeWebAIControlModel>().As<ITitleBarTimeWebAIControlModel>().SingleInstance();
+            builder.RegisterType<SideMenuControlModel>().As<ISideMenuControlModel>().SingleInstance();
 
             //ViewModels
             builder.RegisterType<TitleBarControlViewModel>().As<ITitleBarControlViewModel>().SingleInstance();
@@ -57,6 +63,7 @@ namespace TimeWebAI.Injections
             builder.RegisterType<StatusBarControlViewModel>().As<IStatusBarControlViewModel>().SingleInstance();
             builder.RegisterType<TitleBarPagesControlViewModel>().As<ITitleBarPagesControlViewModel>().SingleInstance();
             builder.RegisterType<TitleBarTimeWebAIControlViewModel>().As<ITitleBarTimeWebAIControlViewModel>().SingleInstance();
+            builder.RegisterType<SideMenuControlViewModel>().As<ISideMenuControlViewModel>().SingleInstance();
 
             //Factories
             builder.RegisterType<PageFactory>().As<IPageFactory>();

@@ -46,7 +46,12 @@
             <ContentControl Content="{markup:ResolveUserControl UserControlType={x:Type controls:TitleBarControl}}"/>
         </Grid>
         <Grid Grid.Row="1" >
-            <ContentControl Content="{markup:ResolveUserControl UserControlType={x:Type controls:FrameControl}}" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ContentControl Grid.Column="0" Content="{markup:ResolveUserControl UserControlType={x:Type controls:SideMenuControl}}" />
+            <ContentControl Grid.Column="1" Content="{markup:ResolveUserControl UserControlType={x:Type controls:FrameControl}}" />
         </Grid>
     </Grid>
     <i:Interaction.Triggers>

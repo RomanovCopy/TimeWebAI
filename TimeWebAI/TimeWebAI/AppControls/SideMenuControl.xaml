@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:interfaces="clr-namespace:TimeWebAI.Interfaces"
              xmlns:markup="clr-namespace:TimeWebAI.Markup"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:TimeWebAI.AppControls"
              mc:Ignorable="d"
              d:DataContext="{x:Type interfaces:ISideMenuControlViewModel}">
