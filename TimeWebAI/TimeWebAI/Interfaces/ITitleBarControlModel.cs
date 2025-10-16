@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TimeWebAI.Interfaces
 {
-    internal interface ITitleBarControlModel: IModel
+    public interface ITitleBarControlModel: IModel
     {
         bool CanExecute_NewIdAgent(object? obj);
         void Execute_NewIdAgent(object? obj);

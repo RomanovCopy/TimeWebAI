@@ -13,16 +13,17 @@ namespace TimeWebAI.ViewModels
 {
     public class TitleBarControlViewModel:ViewModelBase, ITitleBarControlViewModel
     {
-        private readonly TitleBarControlModel model;
+        private readonly ITitleBarControlModel _model;
         public string IdAgent => throw new NotImplementedException();
 
-        public TitleBarControlViewModel()
+        public TitleBarControlViewModel(ITitleBarControlModel? model)
         {
-            model=new TitleBarControlModel();
-            model.PropertyChanged+=(s,e)=>OnPropertyChanged(e.PropertyName??string.Empty);
+            _model = model ?? throw new ArgumentNullException(nameof(model));
+            _model.PropertyChanged+=(s,e)=>OnPropertyChanged(e.PropertyName??string.Empty);
         }
 
 
+        public ICommand SideMenuCommand => throw new NotImplementedException();
 
 
         public ICommand NewIdAgent => throw new NotImplementedException();
@@ -40,5 +41,6 @@ namespace TimeWebAI.ViewModels
         public ICommand Closing => throw new NotImplementedException();
 
         public ICommand Closed => throw new NotImplementedException();
+
     }
 }

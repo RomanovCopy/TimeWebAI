@@ -10,6 +10,8 @@ namespace TimeWebAI.Interfaces
     public interface ITitleBarControlViewModel: IViewModel
     {
         string IdAgent { get; }
+
+        ICommand SideMenuCommand { get; }
         ICommand NewIdAgent { get; }
         ICommand SavePage { get; }
         ICommand LoadPage { get; }
